@@ -1,0 +1,92 @@
+name: Automated Tests
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    name: Test
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+
+        python-version: [3.7, 3.8, 3.9]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python ⚙️
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Setup Poetry 🔧
+        uses: Gr1N/setup-poetry@v4
+
+      - name: Install Dependencies 📥
+        run: poetry install
+
+      - name: Run Unit Tests 📊
+        run: make test
+
+      - name: Generate Coverage Report ⛏️
+        run: make coverage
+
+      - name: Upload Coverage Report 📤
+        uses: codecov/codecov-action@v1
+        with:
+          fail_ci_if_error: true
+          env_vars: OS,PYTHON
+
+
+  style:
+    name: Check Style
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Python ⚙️
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Setup Poetry 🔧
+        uses: Gr1N/setup-poetry@v4
+
+      - name: Install Dependencies 📥
+        run: poetry install
+      
+      - name: Check Style 👠
+        run: make check-style
+
+  
+  lint:
+    name: Static Analysis
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Python ⚙️
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Setup Poetry 🔧
+        uses: Gr1N/setup-poetry@v4
+
+      - name: Install Dependencies 📥
+        run: poetry install
+      
+      - name: Perform Static Analysis 🔬
+        run: make lint
