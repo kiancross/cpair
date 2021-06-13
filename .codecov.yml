@@ -1,0 +1,5 @@
+codecov:
+  allow_coverage_offsets: true
+
+comment:
+  layout: "reach, diff, flags"
