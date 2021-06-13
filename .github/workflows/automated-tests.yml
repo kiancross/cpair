@@ -69,6 +69,25 @@ jobs:
       - name: Check Style 👠
         run: make check-style
 
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python ⚙️
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Setup Poetry 🔧
+        uses: Gr1N/setup-poetry@v4
+
+      - name: Build Package ⛏️
+        run: poetry build
+
   
   lint:
     name: Static Analysis
