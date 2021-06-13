@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "cpair"
 version = "1.0.0"
-description = "Find the minimum distance between a set of points in linear time."
+description = "Python library to find the closest pair of points in a set, with linear asymptotic time complexity."
 authors = ["Kian Cross <kian@kiancross.co.uk>"]
 license = "MIT"
 
