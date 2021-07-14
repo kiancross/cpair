@@ -18,7 +18,7 @@ jobs:
           python-version: 3.9
 
       - name: Setup Poetry 🔧
-        uses: Gr1N/setup-poetry@v4
+        uses: Gr1N/setup-poetry@v7
 
       - name: Install Dependencies 📥
         run: poetry install
