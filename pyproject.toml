@@ -22,7 +22,7 @@ python = "^3.7"
 [tool.poetry.dev-dependencies]
 mypy = "^0.950"
 black = "^21.12b0"
-coverage = "^6.3"
+coverage = "^6.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
