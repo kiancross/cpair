@@ -21,7 +21,7 @@ python = "^3.7"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.971"
-black = "^21.12b0"
+black = "^22.8"
 coverage = "^6.4"
 
 [build-system]
