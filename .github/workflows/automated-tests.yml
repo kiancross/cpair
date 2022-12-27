@@ -30,7 +30,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Setup Poetry 🔧
-        uses: Gr1N/setup-poetry@v7
+        uses: Gr1N/setup-poetry@v8
 
       - name: Install Dependencies 📥
         run: poetry install
@@ -61,7 +61,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Setup Poetry 🔧
-        uses: Gr1N/setup-poetry@v7
+        uses: Gr1N/setup-poetry@v8
 
       - name: Install Dependencies 📥
         run: poetry install
@@ -83,7 +83,7 @@ jobs:
           python-version: 3.9
 
       - name: Setup Poetry 🔧
-        uses: Gr1N/setup-poetry@v7
+        uses: Gr1N/setup-poetry@v8
 
       - name: Build Package ⛏️
         run: poetry build
@@ -102,7 +102,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Setup Poetry 🔧
-        uses: Gr1N/setup-poetry@v7
+        uses: Gr1N/setup-poetry@v8
 
       - name: Install Dependencies 📥
         run: poetry install
